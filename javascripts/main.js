@@ -15,7 +15,7 @@ function createHeaderImages() {
     let random = Math.random() * i
     img.style = `animation-delay: -${random}s; left: ${i * 2.4}vw; `
     img.setAttribute('data-src', `images/pic_webp/pic-${i}.webp`)
-    img.src = 'images/blur.jpg'
+    img.src = 'images/stickerBlur.png'
     img.loading = 'lazyimg'
 
     header.appendChild(img)
