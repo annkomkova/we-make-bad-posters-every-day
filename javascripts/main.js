@@ -1,54 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // createHeader()
+  createHeaderImages()
+  adaptiveHeader()
   createPosters()
   zoomPoster()
 })
 
-// function createHeader() {
-//   const header = document.querySelector('header')
-//   const text = '#we_made_bad_posters_every_day'
+function createHeaderImages() {
+  const header = document.querySelector('header')
 
-//   for (let i = 0; i < text.length; i++) {
-//     const symbol = `<span>${text[i]}</span>`
-//     header.innerHTML = header.innerHTML + symbol
-//   }
-// }
+  for (let i = 1; i < 41; i++) {
+    const img = document.createElement('img')
+    img.className = `img-${i} pic`
+    let random = Math.random() * i
+    img.style = `animation-delay: -${random}s; left: ${i * 2.4}vw; `
+    img.setAttribute('data-src', `images/pic_webp/pic-${i}.webp`)
+    img.src = 'images/blur.jpg'
+    img.loading = 'lazyimg'
 
-function moveHeaderLetters() {
-  let letter = document.querySelector('.draggable')
-  letter.onmousedown = function (event) {
-    let shiftX = event.clientX - letter.getBoundingClientRect().left
-    let shiftY = event.clientY - letter.getBoundingClientRect().top
+    header.appendChild(img)
 
-    letter.style.position = 'absolute'
-    letter.style.zIndex = 1000
-    document.body.append(letter)
-
-    moveAt(event.pageX, event.pageY)
-
-    // переносит мяч на координаты (pageX, pageY),
-    // дополнительно учитывая изначальный сдвиг относительно указателя мыши
-    function moveAt(pageX, pageY) {
-      letter.style.left = pageX - shiftX + 'px'
-      letter.style.top = pageY - shiftY + 'px'
-    }
-
-    function onMouseMove(event) {
-      moveAt(event.pageX, event.pageY)
-    }
-
-    // передвигаем мяч при событии mousemove
-    document.addEventListener('mousemove', onMouseMove)
-
-    // отпустить мяч, удалить ненужные обработчики
-    letter.onmouseup = function () {
-      document.removeEventListener('mousemove', onMouseMove)
-      letter.onmouseup = null
+    img.onload = function () {
+      img.src = img.getAttribute('data-src')
     }
   }
+}
 
-  letter.ondragstart = function () {
-    return false
+function adaptiveHeader() {
+  let width = window.innerWidth
+  const header = document.querySelector('header')
+
+  resizeHeader()
+
+  window.onresize = () => {
+    resizeHeader()
+  }
+
+  function resizeHeader() {
+    if (width < 700) {
+      header.classList.add('mobile')
+      header.classList.remove('desktop')
+    } else {
+      header.classList.remove('mobile')
+      header.classList.add('desktop')
+    }
   }
 }
 
@@ -58,7 +52,8 @@ function createPosters() {
   for (let i = 1; i < 720; i++) {
     const posterItem = document.createElement('img')
     posterItem.classList.add('posterItem')
-    posterItem.setAttribute('data-src', `images/all/poster${i}.jpg`)
+    posterItem.setAttribute('data-src', `images/tiny/poster${i}.jpg`)
+    posterItem.setAttribute('data-srcFull', `images/all/poster${i}.jpg`)
     posterItem.src = 'images/blur.jpg'
     posterItem.loading = 'lazy'
 
@@ -78,6 +73,7 @@ function zoomPoster() {
     poster.addEventListener('click', () => {
       let clone = poster.cloneNode()
       clone.classList.add('zoom')
+      clone.src = clone.getAttribute('data-srcFull')
       zoom.appendChild(clone)
       zoom.style.display = 'block'
     })
