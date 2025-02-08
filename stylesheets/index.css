@@ -41,16 +41,36 @@ header {
 .desktop .pic {
   width: 5vw;
   position: absolute;
-  top: -5vw;
+  top: 10vw;
   z-index: 0;
+}
+.desktop .pic.fall {
   animation: fall 10s infinite ease;
 }
+.desktop .pic.hover:nth-of-type(odd) {
+  transform: scale(1.5);
+}
+.desktop .pic.hover:nth-of-type(even) {
+  animation: rotate 4s infinite linear;
+}
+.pic.hover {
+  animation: paused;
+}
+
 @keyframes fall {
   0% {
     top: -5vw;
   }
   100% {
     top: 45vw;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 section {

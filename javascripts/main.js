@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   createHeaderImages()
   adaptiveHeader()
+  pausedAnimOnHover()
   createPosters()
   zoomPoster()
 })
@@ -10,7 +11,7 @@ function createHeaderImages() {
 
   for (let i = 1; i < 41; i++) {
     const img = document.createElement('img')
-    img.className = `img-${i} pic`
+    img.className = `img-${i} pic fall`
     let random = Math.random() * i
     img.style = `animation-delay: -${random}s; left: ${i * 2.4}vw; `
     img.setAttribute('data-src', `images/pic_webp/pic-${i}.webp`)
@@ -23,6 +24,20 @@ function createHeaderImages() {
       img.src = img.getAttribute('data-src')
     }
   }
+}
+
+function pausedAnimOnHover() {
+  const pictures = document.querySelectorAll('.pic')
+  pictures.forEach((pic) => {
+    pic.onmouseover = (event) => {
+      pic.classList.remove('fall')
+      pic.classList.add('hover')
+    }
+    pic.onmouseout = (event) => {
+      pic.classList.add('fall')
+      pic.classList.remove('hover')
+    }
+  })
 }
 
 function adaptiveHeader() {
