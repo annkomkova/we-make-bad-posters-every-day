@@ -2,9 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
   createHeaderImages()
   adaptiveHeader()
   pausedAnimOnHover()
+  showAbout()
   createPosters()
   zoomPoster()
 })
+
+function showAbout() {
+  const button = document.querySelector('.about p')
+  const about = document.querySelector('.about div')
+
+  button.addEventListener('click', () => {
+    about.classList.toggle('aboutText')
+    button.classList.toggle('active')
+  })
+}
 
 function createHeaderImages() {
   const header = document.querySelector('header')
@@ -32,6 +43,7 @@ function pausedAnimOnHover() {
     pic.onmouseover = (event) => {
       pic.classList.remove('fall')
       pic.classList.add('hover')
+      pic.style.top = `${event.pageY - 10}px`
     }
     pic.onmouseout = (event) => {
       pic.classList.add('fall')

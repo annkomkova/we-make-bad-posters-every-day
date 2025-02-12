@@ -31,12 +31,62 @@ h1 span {
 }
 header {
   width: 100%;
-  height: 31.32vw;
+  height: 34vw;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../images/letters.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
 }
-.desktop .letters {
-  width: 95vw;
-  margin: 0.5rem 0 0 2.4rem;
+.contacts {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: flex-end;
+  padding: 1rem;
+  z-index: 20;
+  position: relative;
+}
+.links {
+  display: flex;
+  gap: 1vw;
+}
+.contacts a,
+.contacts p,
+.contacts .aboutText {
+  text-decoration: none;
+  color: black;
+  margin-right: 10vw;
+  background-color: #fafafa;
+  padding: 10px;
+}
+.contacts a:hover,
+.contacts p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.about p.active {
+  /* width: 5vw;
+  height: auto; */
+  width: 4.4vw;
+  background-color: black;
+  padding: 1vw;
+  color: white;
+}
+.about {
+  max-width: 300px;
+  background-color: #fafafa;
+}
+.about p {
+  user-select: none;
+  transition: all 0.3s ease;
+}
+.aboutText {
+  display: none;
 }
 .desktop .pic {
   width: 5vw;
@@ -92,6 +142,9 @@ section {
 #authors {
   width: 19%;
   font-size: 16px;
+}
+p.underlined {
+  text-decoration: underline;
 }
 .posterItem {
   width: 6%;
