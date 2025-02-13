@@ -46,6 +46,7 @@ header {
 .letters img {
   transition: all 0.2s ease;
   position: absolute;
+  z-index: 10;
 }
 .letters img:hover {
   transition: all 0.6s ease;
