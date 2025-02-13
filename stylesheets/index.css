@@ -15,7 +15,7 @@ body {
 .page {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  /* gap: 1rem; */
   background-color: inherit;
 }
 .subtitle,
@@ -34,17 +34,170 @@ header {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center bottom;
+  position: relative;
+}
+.letters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.letters img {
+  transition: all 0.2s ease;
+  position: absolute;
+}
+.letters img:hover {
+  transition: all 0.6s ease;
+}
+img.letter_we {
+  width: 8vw;
+  top: 1.4vw;
+  left: 16vw;
+}
+img.letter_we:hover {
+  transform: rotate(-34deg);
+}
+img.letter_mak {
+  width: 16vw;
+  top: 3vw;
+  left: 23vw;
+}
+img.letter_e {
+  width: 3vw;
+  top: 15vw;
+  left: 37vw;
+}
+img.letter_e:hover {
+  transform: rotate(-60deg);
+}
+img.letter_b {
+  width: 2vw;
+  top: 2vw;
+  left: 37vw;
+}
+img.letter_a {
+  width: 3vw;
+  top: 3vw;
+  left: 41vw;
+}
+img.letter_d {
+  width: 2.3vw;
+  top: 2.4vw;
+  left: 45vw;
+}
+img.letter_p {
+  width: 4vw;
+  top: 7.3vw;
+  left: 41vw;
+}
+img.letter_p:hover {
+  transform: rotate(-160deg);
+}
+img.letter_o {
+  width: 2.6vw;
+  top: 11.3vw;
+  left: 43vw;
+}
+img.letter_o:hover {
+  transform: scale(1.6);
+}
+img.letter_s {
+  width: 2.6vw;
+  top: 7.6vw;
+  left: 46.8vw;
+}
+img.letter_s:hover {
+  transform: translateY(2vw);
+}
+img.letter_t {
+  width: 4vw;
+  top: 7.3vw;
+  left: 49vw;
+}
+img.letter_t:hover {
+  transform: translateY(-2vw);
+}
+img.letter_e4 {
+  width: 6.4vw;
+  top: 7vw;
+  left: 52.2vw;
+}
+img.letter_e4:hover {
+  transform: scale(0.6);
+}
+img.letter_r {
+  width: 3vw;
+  top: 12.5vw;
+  left: 57vw;
+}
+img.letter_r:hover {
+  transform: translate(-2vw, 2vw);
+}
+img.letter_s2 {
+  width: 3vw;
+  top: 11vw;
+  left: 59.5vw;
+}
+img.letter_s2:hover {
+  transform: translate(2vw, 2vw);
+}
+img.letter_e3 {
+  width: 2.4vw;
+  top: 3vw;
+  left: 57vw;
+}
+img.letter_v {
+  width: 2.4vw;
+  top: 4.6vw;
+  left: 59.5vw;
+}
+img.letter_e2 {
+  width: 3vw;
+  top: 6.2vw;
+  left: 61vw;
+}
+img.letter_r2 {
+  width: 3vw;
+  top: 2.7vw;
+  left: 62vw;
+}
+img.letter_y {
+  width: 4vw;
+  top: 2.7vw;
+  left: 64vw;
+}
+img.letter_d2 {
+  width: 6vw;
+  top: 7vw;
+  left: 64.5vw;
+}
+img.letter_d2:hover {
+  transform: scale(0.5);
+}
+img.letter_a2:hover {
+  transform: translateY(3vw);
+}
+img.letter_a2 {
+  width: 6.6vw;
+  top: 5.4vw;
+  left: 70vw;
+}
+img.letter_y2 {
+  width: 8.5vw;
+  top: 6.7vw;
+  left: 75.5vw;
+}
+img.letter_y2:hover {
+  transform: translate(3vw, 3vw);
 }
 header.desktop {
-  height: 34vw;
-  background-image: url('../images/letters.png');
+  height: 20vw;
+  /* background-image: url('../images/letters.png'); */
 }
 header.mobile {
   height: 80vw;
-  background-image: url('../images/bg-mobile.png');
+  /* background-image: url('../images/bg-mobile.png'); */
 }
 .contacts {
   width: 80%;
@@ -53,7 +206,7 @@ header.mobile {
   justify-content: space-between;
   align-items: flex-start;
   align-self: flex-end;
-  padding: 1rem;
+  padding: 1rem 0 0 0;
   z-index: 20;
   position: relative;
 }
@@ -67,7 +220,7 @@ header.mobile {
   text-decoration: none;
   color: black;
   margin-right: 10vw;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
   padding: 10px;
 }
 .contacts a:hover,
@@ -181,4 +334,15 @@ p.underlined {
   left: 0;
   background-color: rgba(50, 50, 50, 0.8);
   z-index: 10;
+}
+#authors img {
+  width: 100%;
+}
+#authors a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.685);
+}
+#authors a:hover {
+  text-decoration: underline;
+  color: black;
 }
